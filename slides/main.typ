@@ -74,20 +74,12 @@
 == Max-Cut Example
 
 #slide(composer: (1fr, 1fr))[
-  #fletcher.diagram(
+  #fletcher-diagram(
     node-stroke: 2pt,
     spacing: (2em, 4em),
     label-sep: 0pt,
 
-    let s = black,
-    let s_bar = white,
-    // Nodes - S = {0, 3, 6} (blue), S_bar = {1, 2, 4, 5} (orange)
-    node(
-      (1, 0),
-      text(fill: white, weight: "bold")[0],
-      fill: black,
-      inset: 5pt,
-    ),
+    // S_bar Nodes = {1, 2, 4, 5} (white)
     node(
       (3, 0),
       [*1*],
@@ -98,12 +90,6 @@
       (0, 1),
       [*2*],
       fill: white,
-      inset: 5pt,
-    ),
-    node(
-      (2, 1),
-      text(fill: white, weight: "bold")[3],
-      fill: black,
       inset: 5pt,
     ),
     node(
@@ -118,38 +104,25 @@
       fill: white,
       inset: 5pt,
     ),
+
+    // S Nodes = {0, 3, 6} (before pause: white),
+    node(
+      (1, 0),
+      [*0*],
+      inset: 5pt,
+    ),
+    node(
+      (2, 1),
+      [*3*],
+      inset: 5pt,
+    ),
     node(
       (3, 2),
-      text(fill: white, weight: "bold")[6],
-      fill: black,
+      [*6*],
       inset: 5pt,
     ),
 
-    // Cut edges (red, thick)
-    edge((1, 0), (3, 0), "-", stroke: 5pt + red, label: [4]),
-    edge((1, 0), (0, 1), "-", stroke: 5pt + red, label: [3]),
-    edge(
-      (3, 0),
-      (2, 1),
-      "-",
-      stroke: 5pt + red,
-      label: [2],
-      label-side: right,
-    ),
-    edge((0, 1), (2, 1), "-", stroke: 5pt + red, label: [7]),
-    edge((2, 1), (4, 1), "-", stroke: 5pt + red, label: [3]),
-    edge(
-      (2, 1),
-      (1, 2),
-      "-",
-      stroke: 5pt + red,
-      label: [4],
-      label-side: right,
-    ),
-    edge((4, 1), (3, 2), "-", stroke: 5pt + red, label: [5]),
-    edge((1, 2), (3, 2), "-", stroke: 5pt + red, label: [3]),
-
-    // Non-cut edges (gray)
+    // Non-cut edges (black)
     edge(
       (1, 0),
       (2, 1),
@@ -167,6 +140,146 @@
       stroke: 2pt + black,
       label: [2],
       label-side: left,
+    ),
+
+    // Cut edges (before pause: black)
+    edge((1, 0), (3, 0), "-", stroke: 2pt, label: [4]),
+    edge((1, 0), (0, 1), "-", stroke: 2pt, label: [3]),
+    edge(
+      (3, 0),
+      (2, 1),
+      "-",
+      stroke: 2pt,
+      label: [2],
+      label-side: right,
+    ),
+    edge((0, 1), (2, 1), "-", stroke: 2pt, label: [7]),
+    edge((2, 1), (4, 1), "-", stroke: 2pt, label: [3]),
+    edge(
+      (2, 1),
+      (1, 2),
+      "-",
+      stroke: 2pt,
+      label: [4],
+      label-side: right,
+    ),
+    edge((4, 1), (3, 2), "-", stroke: 2pt, label: [5]),
+    edge((1, 2), (3, 2), "-", stroke: 2pt, label: [3]),
+
+    pause,
+
+    // S Nodes = {0, 3, 6} (after pause: black),
+    node(
+      (1, 0),
+      text(white, weight: "bold")[0],
+      fill: black,
+      inset: 5pt,
+    ),
+    node(
+      (2, 1),
+      text(white, weight: "bold")[3],
+      fill: black,
+      inset: 5pt,
+    ),
+    node(
+      (3, 2),
+      text(white, weight: "bold")[6],
+      fill: black,
+      inset: 5pt,
+    ),
+
+    // Cut edges (after pause: red, thick)
+    edge(
+      (1, 0),
+      (3, 0),
+      "-",
+      stroke: 5pt + red,
+      label: text(
+        red,
+        weight: "bold",
+      )[4],
+      label-fill: white,
+      label-sep: 2.5pt,
+    ),
+    edge(
+      (1, 0),
+      (0, 1),
+      "-",
+      stroke: 5pt + red,
+      label: text(
+        red,
+        weight: "bold",
+      )[3],
+      label-fill: white,
+      label-sep: 0.5pt,
+    ),
+    edge(
+      (3, 0),
+      (2, 1),
+      "-",
+      stroke: 5pt + red,
+      label: text(red, weight: "bold")[2],
+      label-side: right,
+      label-fill: white,
+      label-sep: 0.5pt,
+    ),
+    edge(
+      (0, 1),
+      (2, 1),
+      "-",
+      stroke: 5pt + red,
+      label: text(
+        red,
+        weight: "bold",
+      )[7],
+      label-fill: white,
+      label-sep: 2.5pt,
+    ),
+    edge(
+      (2, 1),
+      (4, 1),
+      "-",
+      stroke: 5pt + red,
+      label: text(
+        red,
+        weight: "bold",
+      )[3],
+      label-fill: white,
+      label-sep: 2.5pt,
+    ),
+    edge(
+      (2, 1),
+      (1, 2),
+      "-",
+      stroke: 5pt + red,
+      label: text(red, weight: "bold")[4],
+      label-side: right,
+      label-fill: white,
+      label-sep: 0.5pt,
+    ),
+    edge(
+      (4, 1),
+      (3, 2),
+      "-",
+      stroke: 5pt + red,
+      label: text(
+        red,
+        weight: "bold",
+      )[5],
+      label-fill: white,
+      label-sep: 0.5pt,
+    ),
+    edge(
+      (1, 2),
+      (3, 2),
+      "-",
+      stroke: 5pt + red,
+      label: text(
+        red,
+        weight: "bold",
+      )[3],
+      label-fill: white,
+      label-sep: 2.5pt,
     ),
   )
 ][
@@ -565,7 +678,7 @@ carries information about initial conditions.
   - GA and SQA show higher variance
 ]
 
-== Results: Med Graphs ($n=50$)
+== #text(size: 0.95em)[Results: Medium Graphs ($n=50$)]
 
 #slide(composer: (1fr, 1fr))[
   #image("assets/convergence_n50.png", width: 100%)
