@@ -656,6 +656,18 @@ carries information about initial conditions.
   - *Population-based*: higher per-generation cost than single-solution methods
 ]
 
+== Resources
+
+All code and slides are available at:
+
+#align(center, image(
+  "assets/repository-qr.png",
+  width: 33%,
+  scaling: "pixelated",
+))
+
+#align(center, [_ https://github.com/krtchnt/optimisation-midterm _])
+
 // ========================================================================
 
 #focus-slide([Thank you! \ #text(0.67em, [Any questions?])])
