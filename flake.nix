@@ -1,5 +1,5 @@
 {
-  description = "optimiser";
+  description = "optimisation-final";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
